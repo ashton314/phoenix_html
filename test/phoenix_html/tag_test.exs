@@ -40,6 +40,9 @@ defmodule Phoenix.HTML.TagTest do
     assert content_tag(:p, "Hello", class: "dark") |> safe_to_string() ==
              "<p class=\"dark\">Hello</p>"
 
+    assert content_tag(:p, "Hello", class: ["dark", "stormy"]) |> safe_to_string() ==
+             "<p class=\"dark stormy\">Hello</p>"
+
     assert content_tag(:p, [class: "dark"], do: "Hello") |> safe_to_string() ==
              "<p class=\"dark\">Hello</p>"
 
